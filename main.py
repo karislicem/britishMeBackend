@@ -43,7 +43,7 @@ app.add_middleware(
 )
 
 # ---- API ve Dosya Yapılandırması ----
-GOOGLE_IMAGE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent"
+GOOGLE_IMAGE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-image:generateContent"
 API_KEY = os.getenv("GOOGLE_API_KEY")
 
 if not API_KEY:

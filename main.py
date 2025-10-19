@@ -64,7 +64,7 @@ async def delete_file_later(path: str, delay: int = 120):
 
 # ---- Ana Üretim Endpoint'i ----
 @app.post("/generate")
-@limiter.limit("2/day")  # <-- IP başına günde 2 istek limiti burada uygulanıyor
+@limiter.limit("3/day")  
 async def generate_british_style(request: Request, file: UploadFile = File(...), style: str = Form("classic")):
     """Fotoğrafı Google Gemini API kullanarak British-style portréye dönüştürür."""
     try:

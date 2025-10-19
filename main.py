@@ -6,6 +6,7 @@ import requests
 from fastapi import FastAPI, File, UploadFile, Form
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 
 # Load environment variables (for local dev)
@@ -17,6 +18,13 @@ app = FastAPI(
     version="2.1.0"
 )
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://cemkarisli.com"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 # ---- CONFIG ----
 GOOGLE_IMAGE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent"
 API_KEY = os.getenv("GOOGLE_API_KEY")
